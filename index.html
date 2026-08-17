@@ -16,14 +16,14 @@
 	{% if site.touch_icon %}<link rel="apple-touch-icon" href="{{ site.touch_icon }}">{% endif %}
 
 <style>
-/* Black everywhere the gif doesn't reach (the pillarbox bars). */
+/* Keeps the overscroll/rubber-band area black rather than white. */
 html {
   background-color: #000;
 }
 
 /* The gif is natively 640x480, so the stage is a 4:3 column as tall as the
    viewport and centred, leaving black bars down either side. The dark
-   gradient is a flat 50% scrim layered over the gif to keep text readable. */
+   gradient is a flat 25% scrim layered over the gif to keep text readable. */
 body::before {
   content: "";
   position: fixed;
@@ -33,7 +33,7 @@ body::before {
   height: 100vh;
   width: calc(100vh * 4 / 3);
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
     url(img/lake.gif);
   background-repeat: no-repeat;
   background-position: center center;
@@ -54,10 +54,35 @@ body::before {
   max-width: 100%;
 }
 
-/* On tall/narrow screens the 4:3 stage is wider than the window; crop rather
-   than let it push out a horizontal scrollbar. */
+/* combo.css paints body #fff, which covers the black canvas; without this the
+   pillarbox bars come out white. Also: on tall/narrow screens the 4:3 stage is
+   wider than the window, so crop rather than push out a horizontal scrollbar. */
 body {
+  background-color: #000;
   overflow-x: hidden;
+}
+
+/* combo.css gives every .section 140px of vertical padding. Trim it back so
+   less of the gif is buried under empty space. */
+.section {
+  padding: 60px 0;
+}
+
+.section:first-of-type {
+  padding-top: 60px;
+}
+
+/* Footer: dark instead of combo.css's white, with tighter headroom. */
+#contact {
+  background-color: rgba(0, 0, 0, 0.7);
+  background-image: none;
+  padding: 28px 0 22px;
+  color: #fff;
+}
+
+#contact p {
+  color: #fff;
+  margin-bottom: 0.6em;
 }
 
 /* Links: pink instead of combo.css's bootstrap blue, light enough to read
