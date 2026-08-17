@@ -16,11 +16,48 @@
 	{% if site.touch_icon %}<link rel="apple-touch-icon" href="{{ site.touch_icon }}">{% endif %}
 
 <style>
-body {
-  background-image: url(https://raw.githubusercontent.com/mahadevans2432/mahadevans2432.github.io/master/img/20260215_175408.jpg);
+/* Black everywhere the gif doesn't reach (the pillarbox bars). */
+html {
+  background-color: #000;
+}
+
+/* The gif is natively 640x480, so the stage is a 4:3 column as tall as the
+   viewport and centred, leaving black bars down either side. The dark
+   gradient is a flat 50% scrim layered over the gif to keep text readable. */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100vh;
+  width: calc(100vh * 4 / 3);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(img/lake.gif);
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-position: center center;
   background-size: cover;
+  z-index: 0;
+}
+
+/* Confine the content to the same 4:3 column, sitting above the stage. */
+#main {
+  position: relative;
+  z-index: 1;
+  max-width: calc(100vh * 4 / 3);
+  margin: 0 auto;
+}
+
+/* combo.css pins .container to a fixed 960px; let it shrink inside the column. */
+#main .container {
+  max-width: 100%;
+}
+
+/* On tall/narrow screens the 4:3 stage is wider than the window; crop rather
+   than let it push out a horizontal scrollbar. */
+body {
+  overflow-x: hidden;
 }
 
 
@@ -51,13 +88,13 @@ body {
       <div id="about-me" class="section p-about-me">
         
         <div class="container center">
-          <p><span class="fa-stack subtlecircle" style="font-size:117px; background:rgba(0,0,0,0.1)">
+          <!-- <p><span class="fa-stack subtlecircle" style="font-size:117px; background:rgba(0,0,0,0.1)">
   <img src="https://raw.githubusercontent.com/mahadevans2432/mahadevans2432.github.io/master/img/circle-cropped.png" class="myimg">
-</span></p>
+</span></p> -->
 
-<h1>Welcome to my Homepage :)</h1>
-	<p class="text-white">My name is Mahadevan Subramanian, Ph.D. candidate (Quantum Science & Engineering) at the University of Chicago in <a href="https://pme.uchicago.edu/faculty/liang-jiang">Prof. Liang Jiang</a>'s research group. My research interests are in quantum information theory, more specifically bosonic error correction and bosonic channel learning.</p>
-	<p class="text-white">I currently live in Chicago, IL (USA) and hail from Mumbai, India. I graduated from The Indian Institute of Technology Bombay with a Bachelor of Technology in Engineering Physics with Honours in Physics and a minor in Computer Science & Engineering in Aug 2023.</p>
+<h2>Hi! I am Mahadevan Subramanian</h2>
+	<p class="text-white"> I am a Ph.D. candidate (Quantum Science & Engineering) at the University of Chicago in <a href="https://pme.uchicago.edu/faculty/liang-jiang">Prof. Liang Jiang</a>'s research group. My research work spans over the topics of quantum error correction and quantum channel learning.</p>
+	<p class="text-white">I currently live in Chicago, IL (USA). I graduated from The Indian Institute of Technology Bombay with a Bachelor of Technology in Engineering Physics with Honours in Physics and a minor in Computer Science & Engineering in Aug 2023.</p>
   <p class="text-white">You can find my <a href="https://drive.google.com/file/d/19UOYylxgx4q0y5h7h434ryv_6Mk_JFLS/view?usp=sharing">Curriculum Vitae here</a></p>
 </div>
       </div>
