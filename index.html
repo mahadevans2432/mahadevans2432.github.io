@@ -94,6 +94,22 @@ body {
   margin-bottom: 0.6em;
 }
 
+/* Left-align everything. combo.css centres text in two places: the .center
+   class on each container div, and a separate rule that centres h1/h4 inside
+   any .container regardless. Both need overriding. */
+#main,
+#main .center,
+#main .container h1,
+#main .container h4 {
+  text-align: left;
+}
+
+/* combo.css resets li margins to 0, which runs the multi-line publication
+   entries together. */
+#research li {
+  margin-bottom: 0.9em;
+}
+
 /* Links: pink instead of combo.css's bootstrap blue, light enough to read
    against the scrimmed gif. */
 #main a[href] {
@@ -144,28 +160,29 @@ body {
 </div>
       </div>
 
-<!-- <div id="research" class="section p-research">
+<div id="research" class="section p-research">
         
         <div class="container center">
 
-          <h1 class="text-white">Research Publications</h1>
+          <h1 class="text-white">List of publications/preprints</h1>
           <ul class="text-white">
-            <li> M. Subramanian, G. Zheng, L. Jiang "Achievable", <em>arXiv preprint arXiv:2305.17111 (2023)</em>. <a href="https://arxiv.org/abs/2305.17111">[arXiv]</a></li>
-            <li> M. Subramanian, S. Vinjanampathy, "Variational Quantum Hypothesis Testing", <em>arXiv preprint arXiv:2305.17111 (2023)</em>. <a href="https://arxiv.org/abs/2305.17111">[arXiv]</a></li>
-            <li> M. Subramanian, S. Vinjanampathy, "Variational Quantum Hypothesis Testing", <em>arXiv preprint arXiv:2305.17111 (2023)</em>. <a href="https://arxiv.org/abs/2305.17111">[arXiv]</a></li>
-            <li> M. Subramanian, S. Vinjanampathy, "Variational Quantum Hypothesis Testing", <em>arXiv preprint arXiv:2305.17111 (2023)</em>. <a href="https://arxiv.org/abs/2305.17111">[arXiv]</a></li>
+            <li> <strong>M. S.</strong>, H. Kwon, L. Jiang, "Quantum channel learning with limited parallel access". <a href="https://arxiv.org/abs/2608.05307"><em>arXiv preprint arXiv:2608.05307 (2026)</em></a></li>
+            <li> <strong>M. S.</strong>, G. Zheng, L. Jiang, "Achievable rates for concatenated square Gottesman-Kitaev-Preskill codes". <a href="https://journals.aps.org/prxquantum/abstract/10.1103/56vj-z7h1"><em>PRX Quantum 6, 040342 (2025)</em></a></li>
+            <li> <strong>M. S.</strong>, S. Vinjanampathy, "Shallow-depth variational quantum hypothesis testing". <a href="https://link.aps.org/doi/10.1103/PhysRevA.110.032424"><em>Phys. Rev. A 110, 032424 (2024)</em></a></li>
+            <li> <strong>M. S.</strong>, A. Lupascu, "Efficient two-qutrit gates in superconducting circuits using parametric coupling". <a href="https://link.aps.org/doi/10.1103/PhysRevA.108.062616"><em>Phys. Rev. A 108, 062616 (2023)</em></a></li>
+            <li> <strong>M. S.</strong>, A. Mathew, B. Muralidharan, "Resonant weak-value enhancement for solid-state quantum metrology". <a href="https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.20.044065"><em>Phys. Rev. Applied 20, 044065 (2023)</em></a></li>
           </ul>
 </div>
-    </div> -->
+    </div>
 
       <div id="music" class="section p-music">
         
         <div class="container center">
 
 			
-			<h2>My music</h2>
-			<p>I make music, here is a link to some stuff I've made</p>
-      <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/57JabI36zQJgMqud45oEKn?utm_source=generator&si=cad1333f7f654141" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+			<h3>My music</h3>
+			<p class="text-white">I make music, here is a link to some stuff I've made</p>
+      <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/57JabI36zQJgMqud45oEKn?utm_source=generator&si=cad1333f7f654141" width="60%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       <!-- <iframe style="border: 0; width: 600px; height: 208px;" src="https://bandcamp.com/EmbeddedPlayer/album=620091263/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/" seamless><a href="https://vircil2.bandcamp.com/album/do-automatons-feel">Do automatons feel? by Vircil</a></iframe> -->
     </div>
 
