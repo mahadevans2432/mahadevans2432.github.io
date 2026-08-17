@@ -41,12 +41,17 @@ body::before {
   z-index: 0;
 }
 
-/* Confine the content to the same 4:3 column, sitting above the stage. */
+/* Confine the content to the same 4:3 column, sitting above the stage. The
+   column is at least a full viewport tall and lays its sections out as a
+   flex stack, which is what lets the footer sink to the bottom below. */
 #main {
   position: relative;
   z-index: 1;
   max-width: calc(100vh * 4 / 3);
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* combo.css pins .container to a fixed 960px; let it shrink inside the column. */
@@ -72,12 +77,16 @@ body {
   padding-top: 60px;
 }
 
-/* Footer: dark instead of combo.css's white, with tighter headroom. */
+/* Footer: dark instead of combo.css's white, with tighter headroom. The auto
+   top margin eats all the leftover space in the #main flex column, pinning the
+   footer to the bottom of the viewport when the content doesn't reach it, and
+   behaving like a normal trailing section when the content is longer. */
 #contact {
   background-color: rgba(0, 0, 0, 0.7);
   background-image: none;
   padding: 28px 0 22px;
   color: #fff;
+  margin-top: auto;
 }
 
 #contact p {
@@ -149,15 +158,16 @@ body {
 </div>
     </div> -->
 
-      <!-- <div id="music" class="section p-music">
+      <div id="music" class="section p-music">
         
         <div class="container center">
 
 			
 			<h2>My music</h2>
-			<p>I am an avid music listener and play the keyboard and produce music. You can also find a link to my bandcamp below.</p>
-      <iframe style="border: 0; width: 600px; height: 208px;" src="https://bandcamp.com/EmbeddedPlayer/album=620091263/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/" seamless><a href="https://vircil2.bandcamp.com/album/do-automatons-feel">Do automatons feel? by Vircil</a></iframe>
-    </div> -->
+			<p>I make music, here is a link to some stuff I've made</p>
+      <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/57JabI36zQJgMqud45oEKn?utm_source=generator&si=cad1333f7f654141" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <!-- <iframe style="border: 0; width: 600px; height: 208px;" src="https://bandcamp.com/EmbeddedPlayer/album=620091263/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/" seamless><a href="https://vircil2.bandcamp.com/album/do-automatons-feel">Do automatons feel? by Vircil</a></iframe> -->
+    </div>
 
 
       </div>
